@@ -65,12 +65,18 @@ table th{
     cursor: pointer;
   }
 
-  .dropdown-item i{
-    font-size: 14px;
+  .tab-content i{
+    font-size: 20px;
     margin-right: 10px;
+    cursor: pointer;
   }
+
   
-  .dropdown-item:hover {
-    background-color: #f8f9fa;
+  .status-badge{
+    background-color: #e7e7ff !important;
+    color: #696cff !important;
   }
-  
+
+  .dnotepara{
+    line-height: 10px;
+  }

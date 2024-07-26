@@ -1,29 +1,16 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import companylogo from '../../images/company logo.png'
 import './OrderTable.css';
 
 const OrderTable = () => {
+  const [showModal, setShowModal] = useState(false);
 
-  const [activeRow, setActiveRow] = useState(null);
+  const handleCloseModal = () => setShowModal(false);
+  const handleShowModal = () => setShowModal(true);
 
-  const handleActionClick = (rowId) => {
-    setActiveRow(activeRow === rowId ? null : rowId);
-  };
-
-  const handleEdit = (rowId) => {
-    console.log(`Edit row ${rowId}`);
-  };
-
-
-  const handleDelete = (rowId) => {
-   
-    console.log(`Delete row ${rowId}`);
-  };
-
-  const handleView = (rowId) => {
-    console.log(`View row ${rowId}`);
-  };
-  
   return (
     <div className="container-fluid">
       <div className="row">
@@ -64,48 +51,16 @@ const OrderTable = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {[...Array(8).keys()].map((index) => (
-                        <tr key={index + 1}>
-                          <td>{index + 1}</td>
-                          <td>Order123456</td>
-                          <td>John Doe</td>
-                          <td>23/02/2024 13.00 p.m.</td>
-                          <td>
-                            <div className="dropdown">
-                              <i
-                                className="bi bi-three-dots-vertical"
-                                onClick={() => handleActionClick(index + 1)}
-                                style={{ cursor: 'pointer' }}
-                              ></i>
-                              {activeRow === index + 1 && (
-                                <div className="dropdown-menu show">
-                                  <a
-                                    className="dropdown-item"
-                                    href="#view"
-                                    onClick={() => handleView(index + 1)}
-                                  >
-                                    <i className="bi bi-eye"></i> View
-                                  </a>
-                                  <a
-                                    className="dropdown-item"
-                                    href="#edit"
-                                    onClick={() => handleEdit(index + 1)}
-                                  >
-                                    <i className="bi bi-pencil"></i> Edit
-                                  </a>
-                                  <a
-                                    className="dropdown-item"
-                                    href="#delete"
-                                    onClick={() => handleDelete(index + 1)}
-                                  >
-                                    <i className="bi bi-trash"></i> Delete
-                                  </a>
-                                </div>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
+                      <tr>
+                        <td>1</td>
+                        <td>Order123456</td>
+                        <td>John Doe</td>
+                        <td>23/02/2024 13.00 p.m.</td>
+                        <td className='d-flex'>
+                          <i className="bi bi-eye" onClick={handleShowModal}></i>
+                          <i className="bi bi-pencil-square"></i>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -115,6 +70,7 @@ const OrderTable = () => {
                   <table className="table">
                     <thead>
                       <tr className='table-light'>
+                        <th>#</th>
                         <th>ORDER ID</th>
                         <th>DELIVERY TYPE</th>
                         <th>STATUS</th>
@@ -125,63 +81,14 @@ const OrderTable = () => {
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
-                      </tr>
-                      <tr>
-                        <td>10</td>
-                        <td>Jane Smith</td>
-                        <td>2024-07-24</td>
-                        <td>Processing</td>
+                        <td>Order123456</td>
+                        <td>Express Delivery</td>
+                        <td><span className="badge status-badge">Primary</span></td>
+                        <td>Ashan</td>
+                        <td className='d-flex'>
+                          <i className="bi bi-eye" ></i>
+                          <i className="bi bi-pencil-square"></i>
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -192,83 +99,99 @@ const OrderTable = () => {
                   <table className="table">
                     <thead>
                       <tr className='table-light'>
-                        <th>Order ID</th>
-                        <th>Customer Name</th>
-                        <th>Order Date</th>
-                        <th>Status</th>
+                        <th>#</th>
+                        <th>ITEM ID</th>
+                        <th>AMOUNT</th>
+                        <th>PRICE</th>
+                        <th>TOTAL</th>
+                        <th>ACTION</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>6</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>7</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>8</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>9</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
-                      <tr>
-                        <td>10</td>
-                        <td>Mary Johnson</td>
-                        <td>2024-07-23</td>
-                        <td>Out for Delivery</td>
-                      </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>I001</td>
+                          <td>2</td>
+                          <td>$10.00</td>
+                          <td>$20.00</td>
+                          <td className='d-flex'>
+                            <i className="bi bi-eye"></i>
+                            <i className="bi bi-pencil-square"></i>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>I001</td>
+                          <td>2</td>
+                          <td>$10.00</td>
+                          <td>$20.00</td>
+                          <td className='d-flex'>
+                            <i className="bi bi-eye"></i>
+                            <i className="bi bi-pencil-square"></i>
+                          </td>
+                        </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
+          {/* Modal */}
+          <Modal size='lg' show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Delivery Note</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="delivery-note">
+                <div className="d-flex justify-content-between">
+                  <div>
+                    <img src={companylogo} alt="connex logo" height={50} />
+                  </div>
+                  <div className='mt-3'>
+                    <p className='dnotepara'>Delivery Note: <strong>1234567890</strong></p>
+                    <p className='dnotepara'>Date: <strong>2024-07-15</strong> </p>
+                    <p className='dnotepara'>Time: <strong>13:58</strong> </p>
+                  </div>
+                </div>
+                <table className="table mt-4">
+                  <thead>
+                    <tr className='table-light'>
+                      <th>ITEM ID</th>
+                      <th>AMOUNT</th>
+                      <th>PRICE</th>
+                      <th>TOTAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>I001</td>
+                      <td>2</td>
+                      <td>$10.00</td>
+                      <td>$20.00</td>
+                    </tr>
+                    <tr>
+                      <td>I001</td>
+                      <td>2</td>
+                      <td>$10.00</td>
+                      <td>$20.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseModal}>
+                Close
+              </Button>
+              <Button variant="danger" className='bg-danger'>
+                Download
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default OrderTable;
