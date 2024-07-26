@@ -1,0 +1,74 @@
+.navbar-container {
+    position: relative;
+   
+    /* Default width showing only icons */
+    width: 80px; 
+    transition: width 0.3s;
+    /* display: block; */
+    position: fixed;
+    z-index: 100;
+}
+
+.navbar-container:hover {
+    width: 280px; 
+}
+.navbar-container:hover .connex {
+    display: block;
+}
+.navbar-container .connex {
+    display: none;
+}
+
+
+.vertical-navbar {
+    height: 100vh;
+    overflow: hidden;
+    transition: width 0.3s;
+}
+
+.vertical-navbar .nav-link {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vertical-navbar .nav-link .nav-text {
+    display: none;
+}
+
+.navbar-container:hover .vertical-navbar .nav-link .nav-text {
+    display: inline;
+    margin-left: 20px;
+    
+}
+
+.UserProfile {
+    margin-left: 20px;
+}
+
+.navbar-container:hover .vertical-navbar .nav-link .bi {
+    /* padding-right: 10px; */
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.nav-link.active {
+    background-color: #007bff;
+    color: white !important;
+}
+
+.nav-link {
+    color: #000;
+}
+
+.nav-link:hover {
+    background-color: #ffffff;
+}
+
+.bi {
+    font-size: 25px;
+}
