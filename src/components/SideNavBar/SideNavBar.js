@@ -54,9 +54,11 @@ import { Link } from 'react-router-dom';
                     </li>
                     {/* STOCK MANAGE*/}
                     <li>
-                        <a href="/" id="STOCK MANAGE" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="STOCK MANAGE">
+                        <Link to={'/StockManagement'} id="STOCK MANAGE" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="STOCK MANAGE">
+                       
                             <i className="bi bi-clipboard2-data-fill"></i> <span className="nav-text">STOCK MANAGE</span>
-                        </a>
+                       </Link>
+                        
                     </li>
                      {/* GRN ENTRY*/}
                      <li>
@@ -64,11 +66,11 @@ import { Link } from 'react-router-dom';
                             <i className="bi bi-card-checklist"></i> <span className="nav-text">GRN ENTRY</span>
                         </a>
                     </li>
-                     {/* TRACKING*/}
+                     {/* OrderTracking*/}
                      <li>
-                        <a href="/" id="TRACKING" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="TRACKING">
+                       <Link  to={'/OrderTracking'} id="TRACKING" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="TRACKING">
                             <i className="bi bi-geo-alt-fill"></i> <span className="nav-text">TRACKING</span>
-                        </a>
+                        </Link>
                     </li>
                   
                    
