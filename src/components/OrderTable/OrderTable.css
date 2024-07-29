@@ -29,19 +29,20 @@
 }
 
 table th{
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1px;
+    
 }
 
   .nav-tabs .nav-link.active {
     background-color: #f8f9fa; 
     border-color: #dee2e6 #dee2e6 #f8f9fa; 
-    color: #000;
+    color: #000 !important;
   }
   
 .nav-tabs .nav-link:hover{
     background-color: #f8f9fa;
-    color: #000;
+    color: #000 ;
 }
   
 
@@ -71,12 +72,27 @@ table th{
     cursor: pointer;
   }
 
-  
-  .status-badge{
-    background-color: #e7e7ff !important;
-    color: #696cff !important;
-  }
+  /* Status badge colors */
+.status-badge-green {
+  background-color: #e7ffe7 !important;
+  color: #69cf69 !important;
+}
 
+.status-badge-blue {
+  background-color: #e7f0ff !important;
+  color: #6999ff !important;
+}
+
+.status-badge-yellow {
+  background-color: #fffce7 !important;
+  color: #ffcf69 !important;
+}
+
+.status-badge-red {
+  background-color: #ffe7e7 !important;
+  color: #ff6969 !important;
+}
+  
   .dnotepara{
     line-height: 10px;
   }

@@ -10,7 +10,7 @@
 }
 
 .navbar-container:hover {
-    width: 280px; 
+    /* width: 280px;  */
 }
 .navbar-container:hover .connex {
     display: block;
@@ -39,8 +39,8 @@
 }
 
 .navbar-container:hover .vertical-navbar .nav-link .nav-text {
-    display: inline;
-    margin-left: 20px;
+    /* display: inline;
+    margin-left: 20px; */
     
 }
 

@@ -48,7 +48,7 @@ import { Link } from 'react-router-dom';
                     </li>
                      {/* DELIVERY TRACKING*/}
                      <li>
-                        <a href="/" id="DELIVERY TRACKING" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="DELIVERY TRACKING">
+                        <a href="/OrderTable" id="DELIVERY TRACKING" className="nav-link text-dark" data-bs-toggle="tooltip" data-bs-placement="right" title="DELIVERY TRACKING">
                             <i className="bi bi-truck"></i> <span className="nav-text">DELIVERY TRACKING</span>
                         </a>
                     </li>

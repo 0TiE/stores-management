@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from '../Header/Header';
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import companylogo from '../../images/company logo.png'
+import companylogo from '../../images/ConnexIT.png'
 import './OrderTable.css';
 
 const OrderTable = () => {
@@ -12,13 +12,13 @@ const OrderTable = () => {
   const handleShowModal = () => setShowModal(true);
 
   return (
-    <div className="container-fluid">
+   
       <div className="row">
-        <div className='col-lg-1'>
-        </div>
-        <div className="col-lg-11">
-          <Header />
-          <div className='content mt-5'>
+       
+       
+        <div className="col-lg-12">
+         
+          <div className=' mt-5'>
             <h3 className='mb-4'>Orders</h3>
             <ul className="nav nav-tabs">
               <li className="nav-item">
@@ -38,33 +38,50 @@ const OrderTable = () => {
               </li>
             </ul>
             <div className="tab-content mt-0">
+            {/* pending */}
               <div className="tab-pane fade show active" id="pending">
-                <div className="tablescroll">
-                  <table className="table">
+                <div className="tablescroll ">
+                  <table className="table ">
                     <thead>
-                      <tr className='table-light'>
+                      <tr className='table-primary '>
                         <th>#</th>
                         <th>ORDER ID</th>
                         <th>ORDER BY</th>
                         <th>DATE TIME</th>
+                        <th>Status</th>
                         <th>ACTION</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td>Order123456</td>
+                        <td>Order 123456</td>
                         <td>John Doe</td>
                         <td>23/02/2024 13.00 p.m.</td>
-                        <td className='d-flex'>
+                        <td><span className="badge status-badge-green">Pending</span></td>
+                        <td className=''>
                           <i className="bi bi-eye" onClick={handleShowModal}></i>
                           <i className="bi bi-pencil-square"></i>
                         </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Order 123456</td>
+                        <td>John Doe</td>
+                        <td>23/02/2024 13.00 p.m.</td>
+                        <td><span className="badge status-badge-green">Pending</span></td>
+                        <td className=''>
+                          <i className="bi bi-eye" onClick={handleShowModal}></i>
+                          <i className="bi bi-pencil-square"></i>
+                        </td>
+
+
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
+              {/* processing */}
               <div className="tab-pane fade" id="processing">
                 <div className="tablescroll">
                   <table className="table">
@@ -94,6 +111,7 @@ const OrderTable = () => {
                   </table>
                 </div>
               </div>
+              {/* delivery */}
               <div className="tab-pane fade" id="delivery">
                 <div className="tablescroll">
                   <table className="table">
@@ -136,6 +154,8 @@ const OrderTable = () => {
               </div>
             </div>
           </div>
+
+
           {/* Modal */}
           <Modal size='lg' show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
@@ -190,7 +210,7 @@ const OrderTable = () => {
           </Modal>
         </div>
       </div>
-    </div>
+   
   );
 }
 
